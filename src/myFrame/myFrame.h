@@ -13,6 +13,7 @@ public:
     void pollEvents();
     void destroy();
 
+
 private:
     int width;
     int height;

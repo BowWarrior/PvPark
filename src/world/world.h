@@ -23,12 +23,4 @@ class World{
 
 };
 
-
-
-//World generateWorld();
-
-
-
-
-
 #endif

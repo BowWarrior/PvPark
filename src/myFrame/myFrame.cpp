@@ -18,6 +18,15 @@ MyFrame::MyFrame(int width, int height, const char* title){
 
 bool MyFrame::init(){
     glfwInit();
+
+    //sets size of the window to monitor size
+    GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+    const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+    width = mode->width;
+    height = mode->height;
+    
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
