@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17
 
 TARGET = main
-SRC = main.cpp
+SRC = main.cpp tests\helloWorld.cpp
 
 all: $(TARGET)
 

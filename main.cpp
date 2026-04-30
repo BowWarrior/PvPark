@@ -1,8 +1,11 @@
 #include <iostream>
+#include "tests\helloWorld.h"
 using namespace std;
+#include <string>
 
 int main(){
-    cout << "Hello World";
+    printHelloWorld();
 
+    cout << printHelloWorld();
     return 0;
 }
