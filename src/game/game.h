@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 #include "..\world\world.h"
-#include "..\tests\testHelloWorld\helloWorld.h"
 
 #ifndef GAME_H
 #define GAME_H

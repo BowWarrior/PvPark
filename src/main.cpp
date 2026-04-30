@@ -1,10 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-#include "tests\testHelloWorld\helloWorld.h"
-#include "world\world.h"
 #include "game\game.h"
 
 
@@ -13,6 +6,6 @@ int main(){
     Game game;
     game.init();
     game.run();
-    //cout << printHelloWorld() << endl; //tests helloWorld's printHelloWorld function
+    //cout << printHelloWorld() << endl; //tests helloWorld's printHelloWorld function, but need to include the test file again
     return 0;
 }

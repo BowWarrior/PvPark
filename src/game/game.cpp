@@ -1,10 +1,4 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 #include "game.h"
-#include "..\world\world.h" 
-#include "..\tests\testHelloWorld\helloWorld.h"
 
 Game::Game(){
     isRunning = false;

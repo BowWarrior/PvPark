@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 
-#include "world.h" 
-#include "..\tests\testHelloWorld\helloWorld.h"
+#include "world.h"
 
 
 World::World(){
