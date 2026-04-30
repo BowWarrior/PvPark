@@ -10,7 +10,7 @@ void Game::init(){
     
 
 
-    frame = MyFrame(800, 800, "PvPark");
+    frame = MyFrame("PvPark");
     frame.init();
 
     world.generate();

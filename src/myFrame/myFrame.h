@@ -7,7 +7,7 @@
 class MyFrame{
 public:
     MyFrame();
-    MyFrame(int width, int height, const char* title);
+    MyFrame(const char* title);
     bool init();
     bool shouldClose();
     void pollEvents();

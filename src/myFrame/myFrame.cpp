@@ -3,18 +3,15 @@
 using namespace std;
 
 MyFrame::MyFrame(){
-    width = 800;
-    height = 800;
     title = "PvPark";
     window = nullptr;
 }
 
-MyFrame::MyFrame(int width, int height, const char* title){
-    this->width = width;
-    this->height = height;
+MyFrame::MyFrame(const char* title){
     this->title = title;
     window = nullptr;
 }
+
 
 bool MyFrame::init(){
     glfwInit();
