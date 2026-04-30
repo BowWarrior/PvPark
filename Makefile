@@ -5,6 +5,7 @@ LDFLAGS = -L C:/msys64/ucrt64/lib -lglfw3 -lopengl32 -lgdi32
 # Source files
 SRC = src/main.cpp \
       src/world/World.cpp \
+      src/game/game.cpp \
       src/tests/testHelloWorld/helloWorld.cpp \
       vendor/glad.c
 
