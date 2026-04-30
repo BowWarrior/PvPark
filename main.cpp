@@ -6,6 +6,6 @@ using namespace std;
 int main(){
     printHelloWorld();
 
-    cout << printHelloWorld();
+    cout << printHelloWorld() << endl;
     return 0;
 }

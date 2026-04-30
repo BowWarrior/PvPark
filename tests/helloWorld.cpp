@@ -7,7 +7,6 @@ using namespace std;
 
 
 string printHelloWorld(){
-    string hi = "hello world";
-    return hi;
+    return "hello world";
 
 }
