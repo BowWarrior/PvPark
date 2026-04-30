@@ -1,7 +1,10 @@
 #include <iostream>
-#include "tests\helloWorld.h"
-using namespace std;
 #include <string>
+
+using namespace std;
+
+#include "tests\testHelloWorld\helloWorld.h"
+
 
 int main(){
     printHelloWorld();
