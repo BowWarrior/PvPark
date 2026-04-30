@@ -1,57 +1,51 @@
-#include "glad/glad.h"
-#include "myFrame.h"
 #include <iostream>
+#include "myFrame.h"
+using namespace std;
 
-MyFrame::MyFrame() : window(nullptr) {}
-
-MyFrame::~MyFrame() {
-    if (window) {
-        glfwDestroyWindow(window);
-    }
-    glfwTerminate();
+MyFrame::MyFrame(){
+    width = 800;
+    height = 800;
+    title = "PvPark";
+    window = nullptr;
 }
 
-bool MyFrame::init() {
-    if (!glfwInit()) {
-        std::cout << "Failed to initialize GLFW\n";
-        return false;
-    }
+MyFrame::MyFrame(int width, int height, const char* title){
+    this->width = width;
+    this->height = height;
+    this->title = title;
+    window = nullptr;
+}
 
+bool MyFrame::init(){
+    glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE); 
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window = glfwCreateWindow(800, 800, "PvPark", NULL, NULL);
-    if (!window) {
-        const char* description;
-        int code = glfwGetError(&description);
-        std::cout << "GLFW Window Creation Failed: " << description << " (Code: " << code << ")\n";
+    window = glfwCreateWindow(width, height, title, NULL, NULL);
+    if(window == NULL){
+        cout << "failed to create GLFW window" << endl;
         glfwTerminate();
         return false;
     }
-
     glfwMakeContextCurrent(window);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout << "Failed to initialize GLAD\n";
+    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+        cout << "failed to initialize GLAD" << endl;
         return false;
     }
-
     return true;
 }
 
-void MyFrame::pollEvents() {
-    glfwPollEvents();
-}
-
-bool MyFrame::shouldClose() {
+bool MyFrame::shouldClose(){
     return glfwWindowShouldClose(window);
 }
 
-void MyFrame::swapBuffers() {
-    glfwSwapBuffers(window);
+void MyFrame::pollEvents(){
+    glfwPollEvents();
 }
 
-GLFWwindow* MyFrame::getWindow() {
-    return window;
+void MyFrame::destroy(){
+    glfwDestroyWindow(window);
+    glfwTerminate();
 }

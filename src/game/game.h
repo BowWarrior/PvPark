@@ -1,7 +1,9 @@
-#include "..\world\world.h"
-
 #ifndef GAME_H
 #define GAME_H
+
+#include "..\world\world.h"
+#include "..\myFrame\myFrame.h"
+
 
 class Game{
     public:
@@ -11,6 +13,7 @@ class Game{
         void shutdown();
     private:
         World world;
+        MyFrame frame;
         //Player player;
         //Renderer renderer;
         bool isRunning;

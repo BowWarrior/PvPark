@@ -1,21 +1,22 @@
-#include <GLFW/glfw3.h>
-
 #ifndef MYFRAME_H
 #define MYFRAME_H
 
-class MyFrame {
+#include "glad/glad.h"
+#include <GLFW/glfw3.h>
+
+class MyFrame{
 public:
     MyFrame();
-    ~MyFrame();
-
+    MyFrame(int width, int height, const char* title);
     bool init();
-    void pollEvents();
     bool shouldClose();
-    void swapBuffers();
-
-    GLFWwindow* getWindow();
+    void pollEvents();
+    void destroy();
 
 private:
+    int width;
+    int height;
+    const char* title;
     GLFWwindow* window;
 };
 
