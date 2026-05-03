@@ -55,3 +55,7 @@ void MyFrame::destroy(){
     glfwDestroyWindow(window);
     glfwTerminate();
 }
+
+GLFWwindow* MyFrame::getWindow(){
+    return window;
+}

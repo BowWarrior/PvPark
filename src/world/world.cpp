@@ -18,7 +18,7 @@ void World::generate(){
 }
 
 void World::update(){
-    cout << "updating" << endl;
+    //cout << "updating" << endl;
 }
 
 /*

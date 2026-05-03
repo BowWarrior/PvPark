@@ -12,7 +12,7 @@ public:
     bool shouldClose();
     void pollEvents();
     void destroy();
-
+    GLFWwindow* getWindow();
 
 private:
     int width;
