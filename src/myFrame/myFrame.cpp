@@ -33,7 +33,7 @@ bool MyFrame::init(){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    //Start windowed, almost fullscreen
+    //start windowed, and subtract 75px from height to make space for minimize and exit btn
     width = mode->width;
     height = mode->height - 75;
 
@@ -45,7 +45,7 @@ bool MyFrame::init(){
         return false;
     }
 
-    // Center window
+    //centers window
     windowedX = (mode->width - width) / 2;
     windowedY = (mode->height - height) / 2;
     glfwSetWindowPos(window, windowedX, windowedY);
@@ -69,19 +69,14 @@ void MyFrame::toggleFullscreen() {
     const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 
     if (isFullscreen) {
-        // Save current windowed position + size
+        //saves current windowed position and size
         glfwGetWindowPos(window, &windowedX, &windowedY);
         glfwGetWindowSize(window, &windowedWidth, &windowedHeight);
 
-        // Switch to fullscreen
-        glfwSetWindowMonitor(window, monitor, 0, 0,
-                             mode->width, mode->height,
-                             mode->refreshRate);
+        //switches to fullscreen
+        glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
     } else {
-    glfwSetWindowMonitor(window, NULL,
-                         windowedX, windowedY,
-                         windowedWidth, windowedHeight,
-                         0);
+    glfwSetWindowMonitor(window, NULL, windowedX, windowedY, windowedWidth, windowedHeight,0);
 
     glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_TRUE);
 

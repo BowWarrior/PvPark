@@ -11,33 +11,30 @@ void RenderSystem::render(ECS& ecs, GLFWwindow* window){
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // get window size
     int width, height;
-    glfwGetWindowSize(window, &width, &height);
+    glfwGetFramebufferSize(window, &width, &height);
+    glViewport(0, 0, width, height);
+
     float aspectRatio = (float)width / (float)height;
 
-    // view matrix - camera looking at origin from z=3
-    glm::mat4 view = glm::lookAt(
-        glm::vec3(0.0f, 0.0f, 3.0f),  // camera position
-        glm::vec3(0.0f, 0.0f, 0.0f),  // looking at origin
-        glm::vec3(0.0f, 1.0f, 0.0f)   // up direction
-    );
+    // Fixed world half-height — world always spans -1 to 1 vertically.
+    // Width expands/shrinks with the window, cropping peripheral vision.
+    const float halfHeight = 1.0f;
+    float halfWidth = halfHeight * aspectRatio;
 
-    // projection matrix - handles aspect ratio and perspective
-    glm::mat4 projection = glm::perspective(
-        glm::radians(45.0f),  // field of view
-        aspectRatio,          // aspect ratio
-        0.1f,                 // near clip
-        100.0f                // far clip
+    glm::mat4 view = glm::mat4(1.0f); // no camera movement needed for 2D
+
+    glm::mat4 projection = glm::ortho(
+        -halfWidth,  halfWidth,   // left, right — scales with window width
+        -halfHeight, halfHeight,  // bottom, top — always fixed
+        -1.0f, 1.0f              // near, far
     );
 
     for(auto& [entity, render] : ecs.getRenders()){
         glUseProgram(render.shaderProgram);
 
-        // model matrix - identity for now (no transform)
         glm::mat4 model = glm::mat4(1.0f);
 
-        // pass matrices to shader
         glUniformMatrix4fv(glGetUniformLocation(render.shaderProgram, "model"),
             1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(glGetUniformLocation(render.shaderProgram, "view"),
