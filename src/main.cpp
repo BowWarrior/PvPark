@@ -1,7 +1,8 @@
-#include <iostream>
-#include <string>
+
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
+#include <iostream>
+#include <string>
 #include "myFrame/myFrame.h"
 #include "game\game.h"
 using namespace std;

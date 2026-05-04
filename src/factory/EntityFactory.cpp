@@ -1,8 +1,9 @@
+#include "glad/glad.h"
 #include <cmath>
 #include <vector>
 
 #include "EntityFactory.h"
-#include "glad/glad.h"
+
 
 EntityFactory::EntityFactory(ECS& ecs) : ecs(ecs){}
 

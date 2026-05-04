@@ -1,10 +1,11 @@
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
-#include "RenderSystem.h"
-#include "../ecs/ECS.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "RenderSystem.h"
+#include "../ecs/ECS.h"
+
 
 void RenderSystem::render(ECS& ecs, GLFWwindow* window){
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);

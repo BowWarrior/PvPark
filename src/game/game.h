@@ -1,11 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "..\world\world.h"
-#include "..\myFrame\myFrame.h"
+#include "glad/glad.h"
+#include "../world/world.h"
+#include "../myFrame/myFrame.h"
 #include "../ecs/ECS.h"
 #include "../systems/RenderSystem.h"
-#include "../factory/EntityFactory.h"
 
 
 class Game{
@@ -21,10 +21,7 @@ class Game{
         //Player player;
         //Renderer renderer;
         bool isRunning;
-        EntityFactory factory;
         RenderSystem renderSystem;
-        Entity triangle; //code to draw a triangle in OpenGL
-        Entity circle; //example circle with OpenGL
 };
 
 #endif

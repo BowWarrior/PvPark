@@ -3,9 +3,11 @@
 using namespace std;
 
 #include "world.h"
+#include "../ecs/ECS.h"
+#include "../factory/EntityFactory.h"
+#include "../systems/RenderSystem.h"
 
-
-World::World(){
+World::World(ECS& ecs) : ecs(ecs), factory(ecs){
     renderDistance = 16;
     spawn = 0.0;
     isGenerated = false;
@@ -13,12 +15,18 @@ World::World(){
 }
 
 void World::generate(){
-
     isGenerated = true;
+
+
+
+    Entity circle, triangle;
+    circle = factory.createCircle(0.0f, 0.0f, 0.3f, 64);
+    triangle = factory.createTriangle(-0.5f, -0.5f, 0.5f, -0.5f, 0.0f, 0.5f);
+    
 }
 
 void World::update(){
-    //cout << "updating" << endl;
+    cout << "updating" << endl;
 }
 
 /*
