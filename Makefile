@@ -1,3 +1,5 @@
+export PATH := C:/msys64/ucrt64/bin:$(PATH)
+
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -I include -I C:/msys64/ucrt64/include
 LDFLAGS = -L C:/msys64/ucrt64/lib -lglfw3 -lopengl32 -lgdi32

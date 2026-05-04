@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "..\tests\testHelloWorld\helloWorld.h"
+#include "../tests/testHelloWorld/helloWorld.h"
 
 
 class World{

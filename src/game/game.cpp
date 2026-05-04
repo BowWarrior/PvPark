@@ -1,3 +1,4 @@
+#include <iostream>
 #include "game.h"
 
 Game::Game(){

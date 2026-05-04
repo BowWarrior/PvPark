@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "..\world\world.h"
-#include "..\myFrame\myFrame.h"
+#include "../world/world.h"
+#include "../myFrame/myFrame.h"
 
 
 class Game{
