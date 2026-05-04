@@ -10,6 +10,7 @@ void Game::init(){
 
     frame = MyFrame("PvPark");
     frame.init();
+    glEnable(GL_DEPTH_TEST);
 
 
 /*    Entity player = ecs.createEntity();

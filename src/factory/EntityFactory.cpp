@@ -82,10 +82,10 @@ Entity EntityFactory::createCircle(float centerX, float centerY, float radius, i
     //generate vertices
     std::vector<float> vertices;
     
-    //center point
+    //makes the z-index just under the circle's
     vertices.push_back(centerX);
     vertices.push_back(centerY);
-    vertices.push_back(0.0f);
+    vertices.push_back(-0.1f);
 
     //outer points
     for(int i = 0; i <= segments; i++){
