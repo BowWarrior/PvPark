@@ -51,6 +51,8 @@ bool MyFrame::init(){
     glfwSetWindowPos(window, windowedX, windowedY);
 
     glfwMakeContextCurrent(window);
+    glfwSetWindowUserPointer(window, this);
+    glfwSetKeyCallback(window, keyCallback);
 
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
         cout << "failed to initialize GLAD" << endl;
@@ -62,6 +64,13 @@ bool MyFrame::init(){
     return true;
 }
 
+void MyFrame::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
+    if(key == GLFW_KEY_F11 && action == GLFW_PRESS){
+        MyFrame* frame = (MyFrame*)glfwGetWindowUserPointer(window);
+        frame->toggleFullscreen();
+    }
+}
+
 void MyFrame::toggleFullscreen() {
     isFullscreen = !isFullscreen;
 
@@ -69,26 +78,26 @@ void MyFrame::toggleFullscreen() {
     const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 
     if (isFullscreen) {
-        //saves current windowed position and size
+        //save windowed state
         glfwGetWindowPos(window, &windowedX, &windowedY);
         glfwGetWindowSize(window, &windowedWidth, &windowedHeight);
 
-        //switches to fullscreen
-        glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+        //toggle to borderless fullscreen size
+        glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_FALSE); //set to GLFW_FALSE to GLFW_TRUE for true fullscreen
+        glfwSetWindowPos(window, 0, 0);
+        glfwSetWindowSize(window, mode->width, mode->height);
     } else {
-    glfwSetWindowMonitor(window, NULL, windowedX, windowedY, windowedWidth, windowedHeight,0);
-
-    glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_TRUE);
-
-    glfwSetWindowPos(window, windowedX, windowedY);
-
-    glfwGetFramebufferSize(window, &width, &height);
-    glViewport(0, 0, width, height);
-}
+        //toggle to windowed size
+        glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_TRUE);
+        glfwSetWindowSize(window, windowedWidth, windowedHeight);
+        glfwSetWindowPos(window, windowedX, windowedY);
+    }
 
     glfwGetFramebufferSize(window, &width, &height);
     glViewport(0, 0, width, height);
 }
+
+
 
 
 bool MyFrame::shouldClose(){

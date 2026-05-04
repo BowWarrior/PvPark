@@ -23,6 +23,7 @@ private:
     int windowedX, windowedY; //stores windowed mode's position
     int windowedWidth, windowedHeight; //stores windowed mode's size
     bool isFullscreen;
+    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 };
 
 #endif
