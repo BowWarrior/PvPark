@@ -33,7 +33,17 @@ void Game::run(){
     //main game loop. include things like ticks, etc
     
     while(isRunning && !frame.shouldClose()){
-        frame.pollEvents();
+        frame.pollEvents(); //gets events for the window
+
+        //toggles fullscreen
+        if(glfwGetKey(frame.getWindow(), GLFW_KEY_F11) == GLFW_PRESS){
+            frame.toggleFullscreen();
+            while(glfwGetKey(frame.getWindow(), GLFW_KEY_F11) == GLFW_PRESS){
+                glfwPollEvents();
+            }
+        }
+
+
         renderSystem.render(ecs, frame.getWindow());
         world.update();
         //player.update();

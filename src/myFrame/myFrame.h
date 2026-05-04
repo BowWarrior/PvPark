@@ -13,12 +13,16 @@ public:
     void pollEvents();
     void destroy();
     GLFWwindow* getWindow();
+    void toggleFullscreen();
 
 private:
     int width;
     int height;
     const char* title;
     GLFWwindow* window;
+    int windowedX, windowedY; //stores windowed mode's position
+    int windowedWidth, windowedHeight; //stores windowed mode's size
+    bool isFullscreen;
 };
 
 #endif
