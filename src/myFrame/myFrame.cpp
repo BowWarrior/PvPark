@@ -33,9 +33,9 @@ bool MyFrame::init(){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // Start windowed, almost fullscreen
-    width = mode->width - 100;
-    height = mode->height - 100;
+    //Start windowed, almost fullscreen
+    width = mode->width;
+    height = mode->height - 75;
 
     window = glfwCreateWindow(width, height, title, NULL, NULL);
 
